@@ -1,7 +1,5 @@
 ---
 import "../styles/global.css";
-import Analytics from "@vercel/analytics/astro";
-import SpeedInsights from "@vercel/speed-insights/astro";
 import { personalInfo } from "@/lib/data";
 import { DEFAULT_SITE_DESCRIPTION, serializeJsonLd } from "@/lib/seo";
 
@@ -16,7 +14,7 @@ interface Props {
 }
 
 const {
-  title = `${personalInfo.name} | AF - AWS DEV`,
+  title = `${personalInfo.name} | AWS DEV - AF`,
   description = DEFAULT_SITE_DESCRIPTION,
   type = "website",
   publishedTime,
@@ -86,8 +84,6 @@ const imageUrl = new URL(image, Astro.site ?? Astro.url.origin);
   </head>
   <body class="min-h-screen bg-background font-sans antialiased">
     <slot />
-    <Analytics />
-    <SpeedInsights />
   </body>
 </html>
 
