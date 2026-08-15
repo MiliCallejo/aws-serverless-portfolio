@@ -1,0 +1,28 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import GlassHeader from "@/components/GlassHeader";
+import HeroSection from "@/components/HeroSection";
+import ExperienceSection from "@/components/ExperienceSection";
+import SkillsSection from "@/components/SkillsSection";
+import ProjectsSection from "@/components/ProjectsSection";
+import AwardsSection from "@/components/AwardsSection";
+import EducationSection from "@/components/EducationSection";
+import Footer from "@/components/Footer";
+import { buildPersonJsonLd } from "@/lib/seo";
+
+const origin = (Astro.site ?? Astro.url.origin).toString();
+const jsonLd = buildPersonJsonLd(origin);
+---
+
+<Layout jsonLd={jsonLd}>
+  <GlassHeader client:load />
+  <main class="min-h-screen">
+    <HeroSection client:load />
+    <ExperienceSection client:load />
+    <ProjectsSection client:load />
+    <SkillsSection client:load />
+    <AwardsSection client:load />
+    <EducationSection client:load />
+  </main>
+  <Footer client:load />
+</Layout>
