@@ -3,122 +3,265 @@ import MotionWrapper from "./MotionWrapper";
 import SectionHeading from "./SectionHeading";
 
 function ProjectArtwork() {
+  const monitoringItems = ["Logs", "Metrics", "Alarms"];
+  const transversalServices = [
+    { name: "IAM", detail: "Security" },
+    { name: "GitHub Actions", detail: "CI/CD" },
+    { name: "AWS Budgets", detail: "Cost Control" },
+  ];
+
   return (
     <div
-      className="relative aspect-4/3 overflow-hidden border border-border bg-hero-background p-5 text-hero-foreground md:p-7"
-      aria-hidden="true"
+      className="relative overflow-hidden border border-border bg-hero-background p-4 text-hero-foreground md:p-6"
+      aria-label="Arquitectura serverless AWS del portfolio"
     >
       {/* Fondo decorativo */}
-      <div className="absolute -right-12 -top-12 h-36 w-36 rounded-full bg-coral/20 blur-3xl" />
-      <div className="absolute -bottom-14 -left-10 h-40 w-40 rounded-full bg-acid/15 blur-3xl" />
+      <div className="absolute -right-16 -top-16 h-44 w-44 rounded-full bg-coral/15 blur-3xl" />
+      <div className="absolute -bottom-20 -left-16 h-52 w-52 rounded-full bg-acid/10 blur-3xl" />
 
-      <div className="relative flex h-full flex-col">
-        <div className="mb-5 flex items-center justify-between">
+      <div className="relative">
+        {/* Header */}
+        <div className="mb-6 flex items-start justify-between gap-4">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-coral">
+            <p className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-coral md:text-xs">
               AWS Architecture
             </p>
-            <p className="mt-1 text-xs text-hero-foreground/55">
+
+            <p className="mt-1 text-xs text-hero-foreground/60">
               Serverless Portfolio
             </p>
           </div>
 
-          <div className="border border-coral/50 bg-coral/10 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wider text-coral">
+          <div className="border border-coral/50 bg-coral/10 px-3 py-1 text-[0.6rem] font-black uppercase tracking-wider text-coral">
             Cloud
           </div>
         </div>
 
-        <div className="flex flex-1 flex-col items-center justify-center">
-          {/* Usuario */}
-          <div className="border-2 border-hero-foreground bg-background px-5 py-2 text-center shadow-[5px_5px_0_0_var(--coral)]">
-            <span className="font-display text-sm md:text-base">
+        {/* Usuario */}
+        <div className="flex justify-center">
+          <div className="border-2 border-hero-foreground bg-background px-5 py-2 text-center shadow-[4px_4px_0_0_var(--coral)]">
+            <div className="font-display text-sm md:text-base">
               USER
-            </span>
-          </div>
-
-          <div className="h-5 w-px bg-coral" />
-          <div className="text-coral">↓</div>
-          <div className="h-2 w-px bg-coral" />
-
-          {/* CloudFront */}
-          <div className="w-[70%] border-2 border-coral bg-coral px-4 py-3 text-center text-ink">
-            <div className="font-display text-lg md:text-xl">
-              CLOUDFRONT
-            </div>
-            <div className="mt-1 text-[0.65rem] font-bold uppercase tracking-wider">
-              CDN · HTTPS
             </div>
           </div>
+        </div>
 
-          <div className="h-5 w-px bg-coral" />
-          <div className="text-coral">↓</div>
-          <div className="h-2 w-px bg-coral" />
+        <Connector />
 
-          {/* S3 */}
-          <div className="w-[58%] border-2 border-hero-foreground bg-ink px-4 py-3 text-center text-white">
-            <div className="font-display text-lg md:text-xl">
-              AMAZON S3
-            </div>
-            <div className="mt-1 text-[0.65rem] font-bold uppercase tracking-wider text-white/65">
-              Astro Frontend
-            </div>
-          </div>
+        {/* CloudFront */}
+        <ServiceBox
+          title="CLOUDFRONT"
+          subtitle="CDN · HTTPS"
+          variant="primary"
+          width="w-[78%]"
+        />
 
-          <div className="my-4 flex w-full items-center">
-            <div className="h-px flex-1 bg-border" />
-            <span className="px-3 text-[0.6rem] font-black uppercase tracking-[0.18em] text-muted-foreground">
-              API
-            </span>
-            <div className="h-px flex-1 bg-border" />
-          </div>
+        <Connector />
 
-          {/* Backend */}
-          <div className="grid w-full grid-cols-3 gap-2 md:gap-3">
-            <div className="border-2 border-hero-foreground bg-background px-2 py-3 text-center">
-              <div className="font-display text-[0.78rem] md:text-sm">
-                API
-              </div>
-              <div className="font-display text-[0.78rem] md:text-sm">
-                GATEWAY
-              </div>
-            </div>
+        {/* S3 */}
+        <ServiceBox
+          title="AMAZON S3"
+          subtitle="Astro Frontend"
+          variant="dark"
+          width="w-[68%]"
+        />
 
-            <div className="flex items-center justify-center text-coral">
-              →
-            </div>
+        {/* API separator */}
+        <div className="my-4 flex items-center">
+          <div className="h-px flex-1 bg-border" />
 
-            <div className="border-2 border-coral bg-coral px-2 py-3 text-center text-ink">
-              <div className="font-display text-sm md:text-base">
-                LAMBDA
-              </div>
-              <div className="mt-1 text-[0.55rem] font-bold uppercase">
-                Serverless
-              </div>
-            </div>
-          </div>
+          <span className="px-3 text-[0.55rem] font-black uppercase tracking-[0.18em] text-muted-foreground">
+            POST /contact
+          </span>
 
-          <div className="h-4 w-px bg-coral" />
-          <div className="text-coral">↓</div>
-          <div className="h-1 w-px bg-coral" />
+          <div className="h-px flex-1 bg-border" />
+        </div>
 
+        {/* API Gateway */}
+        <ServiceBox
+          title="API GATEWAY"
+          subtitle="HTTP API"
+          variant="outline"
+          width="w-[72%]"
+        />
+
+        <Connector />
+
+        {/* Lambda */}
+        <ServiceBox
+          title="AWS LAMBDA"
+          subtitle="PortfolioContactFunction"
+          variant="primary"
+          width="w-[72%]"
+        />
+
+        {/* Branch */}
+        <div className="mx-auto mt-2 h-5 w-px bg-coral" />
+
+        <div className="mx-auto h-px w-[68%] bg-coral" />
+
+        <div className="mx-auto grid w-[92%] grid-cols-3">
+          <div className="mx-auto h-5 w-px bg-coral" />
+          <div className="mx-auto h-5 w-px bg-coral" />
+          <div className="mx-auto h-5 w-px bg-coral" />
+        </div>
+
+        {/* Servicios backend */}
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
           {/* DynamoDB */}
-          <div className="w-[55%] border-2 border-hero-foreground bg-acid px-3 py-2 text-center text-ink">
+          <div className="border-2 border-hero-foreground bg-background p-3 text-center">
             <div className="font-display text-sm md:text-base">
               DYNAMODB
             </div>
+
+            <p className="mt-1 text-[0.55rem] font-bold uppercase tracking-wide text-muted-foreground">
+              Messages
+            </p>
+
+            <div className="mx-auto my-2 h-3 w-px bg-border" />
+
+            <p className="text-[0.6rem] leading-relaxed text-muted-foreground">
+              Almacenamiento de mensajes
+            </p>
+          </div>
+
+          {/* SES */}
+          <div className="border-2 border-coral bg-coral p-3 text-center text-ink">
+            <div className="font-display text-sm md:text-base">
+              AMAZON SES
+            </div>
+
+            <p className="mt-1 text-[0.55rem] font-black uppercase tracking-wide">
+              Email
+            </p>
+
+            <div className="mx-auto my-2 h-3 w-px bg-ink/40" />
+
+            <p className="text-[0.6rem] font-semibold leading-relaxed">
+              Notificación por Gmail
+            </p>
+          </div>
+
+          {/* CloudWatch */}
+          <div className="border-2 border-hero-foreground bg-ink p-3 text-center text-white">
+            <div className="font-display text-sm md:text-base">
+              CLOUDWATCH
+            </div>
+
+            <p className="mt-1 text-[0.55rem] font-bold uppercase tracking-wide text-white/60">
+              Monitoring
+            </p>
+
+            <div className="mt-3 grid gap-1.5">
+              {monitoringItems.map((item) => (
+                <span
+                  key={item}
+                  className="border border-white/15 bg-white/5 px-2 py-1 text-[0.55rem] font-black uppercase tracking-wider text-white/75"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
 
-        <div className="mt-4 flex flex-wrap justify-center gap-2">
-          {["IAM", "CloudWatch", "GitHub Actions"].map((service) => (
-            <span
-              key={service}
-              className="border border-border bg-background/60 px-2.5 py-1 text-[0.6rem] font-black uppercase tracking-wider text-muted-foreground"
-            >
-              {service}
-            </span>
-          ))}
+        {/* SES → Gmail */}
+        <div className="grid grid-cols-1 sm:grid-cols-3">
+          <div />
+
+          <div className="flex flex-col items-center">
+            <div className="h-4 w-px bg-coral" />
+            <div className="text-xs text-coral">↓</div>
+
+            <div className="mt-1 w-full border border-border bg-background/70 px-2 py-2 text-center">
+              <div className="font-display text-xs">
+                GMAIL
+              </div>
+
+              <div className="mt-1 break-all text-[0.5rem] text-muted-foreground">
+                milagros.callejo03@gmail.com
+              </div>
+            </div>
+          </div>
+
+          <div />
         </div>
+
+        {/* Servicios transversales */}
+        <div className="mt-6 border-t border-border pt-4">
+          <p className="mb-3 text-center text-[0.55rem] font-black uppercase tracking-[0.2em] text-muted-foreground">
+            Security · Deployment · Cost Control
+          </p>
+
+          <div className="grid grid-cols-3 gap-2">
+            {transversalServices.map((service) => (
+              <div
+                key={service.name}
+                className="border border-border bg-background/50 px-2 py-2 text-center"
+              >
+                <div className="text-[0.55rem] font-black uppercase tracking-wide text-coral md:text-[0.6rem]">
+                  {service.name}
+                </div>
+
+                <div className="mt-1 text-[0.48rem] uppercase tracking-wide text-muted-foreground">
+                  {service.detail}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Connector() {
+  return (
+    <div className="flex flex-col items-center">
+      <div className="h-4 w-px bg-coral" />
+      <div className="text-xs leading-none text-coral">↓</div>
+      <div className="h-2 w-px bg-coral" />
+    </div>
+  );
+}
+
+type ServiceBoxProps = {
+  title: string;
+  subtitle: string;
+  width: string;
+  variant: "primary" | "dark" | "outline";
+};
+
+function ServiceBox({
+  title,
+  subtitle,
+  width,
+  variant,
+}: ServiceBoxProps) {
+  const styles = {
+    primary: "border-coral bg-coral text-ink",
+    dark: "border-hero-foreground bg-ink text-white",
+    outline: "border-coral bg-background text-hero-foreground",
+  };
+
+  return (
+    <div
+      className={`mx-auto border-2 px-4 py-3 text-center ${width} ${styles[variant]}`}
+    >
+      <div className="font-display text-base md:text-xl">
+        {title}
+      </div>
+
+      <div
+        className={`mt-1 text-[0.55rem] font-bold uppercase tracking-wider ${
+          variant === "dark"
+            ? "text-white/60"
+            : variant === "primary"
+              ? "text-ink/70"
+              : "text-muted-foreground"
+        }`}
+      >
+        {subtitle}
       </div>
     </div>
   );
