@@ -16,7 +16,8 @@ const NAV_ITEMS = [
   { label: "Trabajo", href: "/#work" },
   { label: "Habilidades", href: "/#skills" },
   { label: "Certificaciones", href: "/#awards" },
-  { label: "Educación", href: "/#education" }
+  { label: "Educación", href: "/#education" },
+  { label: "Contacto", href: "/#contact" },
 ] as const;
 
 const DESKTOP_NAV_QUERY = "(min-width: 768px)";
